@@ -1,37 +1,13 @@
 .menu {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  transform: translateX(100%);
-  height: 100%;
-  width: 30%;
-  background-color: lightblue;
-  transition: all 1s ease;
-  display: none;
-  @include breakpoint($xl-bp) {
-    display: block;
-    height: 100vh;
-  }
+  flex-grow: 1;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 .menu--open {
   transform: translateX(0);
 }
-
-// .menu-button {
-//   width: 30px;
-//   height: 30px;
-
-//   background-color: red;
-
-//   position: absolute;
-
-//   right: 0;
-//   top: 0;
-
-//   z-index: 3;
-// }
 
 .menu-button {
   width: 4rem;
@@ -42,34 +18,39 @@
   z-index: 4;
   display: none;
   position: relative;
+
   .burger-button-close {
+
     #first-line-burger,
     #second-line-burger,
     #third-line-burger {
-        width: 100%;
-        height: 0.2rem;
-        border-radius: 0.1rem;
-        background-color: black;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%);
-        transform-origin: center center;
-        transition: transform 0.4s ease, opacity 0.4s ease;
+      width: 100%;
+      height: 0.2rem;
+      border-radius: 0.1rem;
+      background-color: black;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      transform-origin: center center;
+      transition: transform 0.4s ease, opacity 0.4s ease;
     }
 
     #first-line-burger {
-        top: 0%;
+      top: 0%;
     }
+
     #third-line-burger {
-        top: unset;
-        bottom: 0%;
+      top: unset;
+      bottom: 0%;
     }
   }
+
   @include breakpoint($xl-bp) {
     display: block;
     margin-left: 3rem;
   }
+
   @include breakpoint($sm-bp) {
     margin-left: 0;
     width: 2rem;
@@ -85,10 +66,12 @@
       top: 50%;
       transform: translateX(-50%) rotate(45deg);
     }
+
     #second-line-burger {
       transform: translateX(100%);
       opacity: 0;
     }
+
     #third-line-burger {
       top: 50%;
       bottom: 0;
@@ -98,13 +81,109 @@
 }
 
 
-.menu-button--active {
-
-}
+.menu-button--active {}
 
 .overlay {
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
+}
+
+.menu-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3.4rem;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menu-list {
+  display: flex;
+  border-radius: 0 0 1.6rem 1.6rem;
+  padding: 0 1.6rem;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
+  background: var(--primary-white);
+
+  a {
+    font-weight: 600;
+    font-size: 1.8rem;
+    text-align: center;
+    border-radius: 3.6rem;
+    padding: 1rem 1.8rem 0.8rem;
+
+    display: block;
+  }
+}
+
+.menu-bot {
+  padding-top: 1.4rem;
+}
+
+.menu-phone {
+  font-weight: 700;
+  font-size: 2.2rem;
+  text-align: right;
+  color: var(--primary-black);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6rem;
+
+  &::before {
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.96059 5.15245C9.68217 4.45641 9.00804 4 8.25838 4H5.73684C4.77761 4 4 4.77742 4 5.73665C4 13.8901 10.6099 20.5 18.7633 20.5C19.7226 20.5 20.5 19.7223 20.5 18.7631L20.5004 16.2411C20.5004 15.4915 20.0441 14.8174 19.3481 14.539L16.9314 13.5727C16.3061 13.3226 15.5943 13.4352 15.0769 13.8663L14.4532 14.3865C13.7248 14.9935 12.653 14.9452 11.9825 14.2747L10.2262 12.5168C9.55572 11.8463 9.50617 10.7754 10.1132 10.047L10.6333 9.42327C11.0644 8.90596 11.1779 8.1939 10.9279 7.56867L9.96059 5.15245Z' fill='%235BC3B7'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: block;
+  }
+}
+
+.menu-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-start;
+
+  margin-top: 1.2rem;
+}
+
+.menu-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.menu-btn {
+  padding: 0.4rem 1.2rem;
+  font-size: 1.6rem;
+  line-height: 125%;
+}
+
+.menu-pages {}
+
+.menu-nav {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+
+  margin-top: 1.05rem;
+
+  a {
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+}
+
+.menu-info {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 114%;
+  color: var(--secondary-grey);
 }

@@ -1,5 +1,5 @@
 .header {
-  position: fixed;
+  position: sticky;
   width: 100%;
   transition: transform .3s;
   will-change: transform;
@@ -7,10 +7,27 @@
   left: 0;
   z-index: 20;
 
-  @include breakpoint($xl-bp) {
-  }
+  display: flex;
+  justify-content: space-between;
+
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  background: var(--prime-white--700);
+
+  padding-bottom: 1rem;
+
+  backdrop-filter: blur(4px);
+
+  @include breakpoint($xl-bp) {}
 }
 
 .out {
   transform: translate3d(0, calc(-100% - 1rem), 0);
+}
+
+.header-logo {
+  width: 16.4rem;
+  height: 11rem;
+
+  margin-top: auto;
+  margin-bottom: auto;
 }
