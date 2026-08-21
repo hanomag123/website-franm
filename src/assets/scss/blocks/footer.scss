@@ -1,0 +1,92 @@
+.footer {
+  background: var(--secondary-green);
+  margin-top: 4rem;
+  padding-top: 2.15rem;
+  padding-bottom: 2.15rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.footer-column {}
+
+.footer-logo {
+  width: 13.6rem;
+  height: 9.1rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-phone {}
+
+.footer-link {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 150%;
+  text-align: right;
+
+  svg {
+    width: 2rem;
+    height: 2rems;
+  }
+}
+
+.footer-email {}
+
+.footer-licence {}
+
+.footer-date {}
+
+.footer-middle {}
+
+.footer-nav {}
+
+.footer-btns {}
+
+.footer-btn {}
+
+.footer-links2 {}
+
+.footer-bottext {}
+
+.footer-buttons {}
+
+.footer-button {
+  border-radius: 3.6rem;
+  padding: 1rem 2rem;
+  height: 4.2rem;
+  display: inline-flex;
+  gap: 1rem;
+
+  background: var(--primary-white);
+
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-align: center;
+  color: var(--secondary-green--darke);
+
+  svg {
+    width: 3.7rem;
+    height: 2.2rem;
+  }
+}
+
+.footer-company {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.6rem;
+
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 125%;
+
+}
+
+.footer-logo2 {
+  width: 15rem;
+  height: 3.3rem;
+}

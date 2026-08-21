@@ -164,6 +164,12 @@ svg {
     color: var(--secondary-green);
   }
 
+  &.btn-secondarywhite {
+    border: 0.2rem solid var(--primary-white);
+    background-color: transparent;
+    color: var(--primary-white);
+  }
+
   &.btn-white {
     background: var(--primary-white);
     border: 1px solid var(--secondary-purp--shade);
@@ -338,10 +344,11 @@ input[type="text"] {
   }
 }
 
-details > summary::-webkit-details-marker {
-  display:none;
+details>summary::-webkit-details-marker {
+  display: none;
 }
-details > summary {
+
+details>summary {
   list-style: none;
   cursor: pointer;
 }
