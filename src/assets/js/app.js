@@ -276,13 +276,14 @@ document.addEventListener("DOMContentLoaded", () => {
     reviews.forEach((swiper) => {
       const slides = swiper.querySelectorAll(".swiper-slide");
       const pagination = swiper.querySelector(".swiper-pagination");
-      
+
       new Swiper(swiper, {
         slidesPerView: "auto",
         grabCursor: true,
         loop: slides?.length > 3,
         pagination: {
           el: pagination,
+          clickable: true,
         },
         on: {
           beforeTransitionStart: () => {

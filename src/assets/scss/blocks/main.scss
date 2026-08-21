@@ -571,3 +571,100 @@
     display: inline-block;
   }
 }
+
+.faq-list {
+  margin-top: 1.5rem;
+}
+
+.faq-accordion {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background: var(--primary-white);
+  border-bottom: 1px solid var(--secondary-green);
+  border-top: 1px solid var(--secondary-green);
+  border-radius: 3rem;
+  padding: 1rem 4rem;
+}
+
+.faq-h3,
+.faq-summary {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 150%;
+  transition: color var(--time);
+}
+
+.faq-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  &::after {
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg width='48' height='24' viewBox='0 0 48 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M34.84 4.90398L36.96 7.02598L25.406 18.584C25.2209 18.7703 25.0007 18.9181 24.7582 19.019C24.5157 19.1199 24.2557 19.1719 23.993 19.1719C23.7304 19.1719 23.4703 19.1199 23.2278 19.019C22.9853 18.9181 22.7652 18.7703 22.58 18.584L11.02 7.02598L13.14 4.90598L23.99 15.754L34.84 4.90398Z' fill='%235BC3B7'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 4.8rem;
+    height: 2.4rem;
+    display: flex;
+    flex: 0 0 auto;
+    transition: transform var(--time);
+
+    details[open] & {
+      transform: rotate(180deg);
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--secondary-green--darke);
+    }
+  }
+}
+
+.faq-inner {
+  display: flex;
+  gap: 2.5rem;
+
+  margin-top: 1rem;
+  max-width: 102rem;
+}
+
+.faq-img {
+  width: 6rem;
+  height: 4.2rem;
+  flex: 0 0 auto;
+}
+
+.faq-wysiwyg {
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 144%;
+  color: var(--primary-black);
+
+  ul {
+    li {
+      padding-left: 3rem;
+      position: relative;
+      &::before {
+        content:'•';
+        position: absolute;
+        left: 1rem;
+      }
+    }
+  }
+}
+
+.faq-comand {
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: var(--secondary-green--darke);
+}

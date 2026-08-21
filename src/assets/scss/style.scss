@@ -338,6 +338,14 @@ input[type="text"] {
   }
 }
 
+details > summary::-webkit-details-marker {
+  display:none;
+}
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
 /* Blocks */
 
 @import "importsBlocks";
