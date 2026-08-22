@@ -5,10 +5,18 @@
   padding-bottom: 2.15rem;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 28.7rem 1fr 27.9rem;
+  gap: 4rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-.footer-column {}
+.footer-column {
+  grid-row: 2 span;
+}
 
 .footer-logo {
   width: 13.6rem;
@@ -18,7 +26,8 @@
 .footer-links {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+
+  margin-top: 2rem;
 }
 
 .footer-phone {}
@@ -27,7 +36,10 @@
   font-weight: 700;
   font-size: 2rem;
   line-height: 150%;
-  text-align: right;
+
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 
   svg {
     width: 2rem;
@@ -35,39 +47,161 @@
   }
 }
 
-.footer-email {}
+a.footer-link {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-skip-ink: none;
+  transition: text-decoration-color var(--time);
 
-.footer-licence {}
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      text-decoration-color: currentColor;
+    }
+  }
+}
 
-.footer-date {}
+.footer-email {
+  font-size: 1.8rem;
+  line-height: 144%;
+}
 
-.footer-middle {}
+.footer-licence {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 114%;
 
-.footer-nav {}
+  margin-top: 1.5rem;
+}
 
-.footer-btns {}
+.footer-date {
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 125%;
+}
 
-.footer-btn {}
+.footer-middle {
+  grid-row: 2 span;
 
-.footer-links2 {}
+  display: flex;
+  flex-direction: column;
+}
 
-.footer-bottext {}
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
 
-.footer-buttons {}
+  font-weight: 700;
+  font-size: 1.4rem;
+
+  padding-top: 0.8rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-skip-ink: none;
+    transition: text-decoration-color var(--time);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        text-decoration-color: var(--time)
+      }
+    }
+  }
+}
+
+.footer-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6rem;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.footer-btn {
+  padding: 0.9rem 2rem;
+  font-size: 1.4rem;
+  line-height: 100%;
+}
+
+.footer-links2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+
+  margin-top: 2.5rem;
+
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 125%;
+  text-align: center;
+
+
+
+  a {
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    transition: text-decoration-color var(--time);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        text-decoration-color: transparent;
+      }
+    }
+  }
+}
+
+.footer-bottext {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 114%;
+  text-align: center;
+
+  padding-top: 1.5rem;
+  margin-top: auto;
+}
+
+.footer-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 6.3rem;
+}
 
 .footer-button {
   border-radius: 3.6rem;
   padding: 1rem 2rem;
-  height: 4.2rem;
+  border: 0.2rem solid var(--primary-white);
   display: inline-flex;
+  align-items: center;
   gap: 1rem;
 
   background: var(--primary-white);
 
   font-weight: 700;
   font-size: 1.4rem;
+  line-height: 100%;
   text-align: center;
   color: var(--secondary-green--darke);
+
+  width: fit-content;
+  margin-left: auto;
+
+  transition: background-color var(--time), color var(--time);
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: transparent;
+      color: var(--primary-white);
+    }
+  }
 
   svg {
     width: 3.7rem;

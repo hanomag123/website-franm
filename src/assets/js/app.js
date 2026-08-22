@@ -253,6 +253,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   addMask();
 
+  const swipers = document.querySelectorAll(".good-swiper");
+  if (swipers.length) {
+    swipers.forEach((swiper) => {
+      const pagination = swiper.querySelector(".swiper-pagination");
+
+      new Swiper(swiper, {
+        slidesPerView: "auto",
+        grabCursor: true,
+        pagination: {
+          el: pagination,
+          clickable: true,
+        },
+      });
+    });
+  }
+
   class ReviewsShowMore extends window.HTMLElement {
     connectedCallback() {
       this.init();

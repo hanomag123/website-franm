@@ -3,6 +3,10 @@
 
   display: flex;
   justify-content: space-between;
+
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
 }
 
 .menu--open {
@@ -10,78 +14,26 @@
 }
 
 .menu-button {
-  width: 4rem;
-  height: 3.4rem;
-  background-color: transparent;
-  border: 0;
-
-  z-index: 4;
   display: none;
-  position: relative;
-
-  .burger-button-close {
-
-    #first-line-burger,
-    #second-line-burger,
-    #third-line-burger {
-      width: 100%;
-      height: 0.2rem;
-      border-radius: 0.1rem;
-      background-color: black;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translateX(-50%);
-      transform-origin: center center;
-      transition: transform 0.4s ease, opacity 0.4s ease;
-    }
-
-    #first-line-burger {
-      top: 0%;
-    }
-
-    #third-line-burger {
-      top: unset;
-      bottom: 0%;
-    }
-  }
-
   @include breakpoint($xl-bp) {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M35 20C35 20.3315 34.8683 20.6495 34.6339 20.8839C34.3995 21.1183 34.0815 21.25 33.75 21.25H6.25C5.91848 21.25 5.60054 21.1183 5.36612 20.8839C5.1317 20.6495 5 20.3315 5 20C5 19.6685 5.1317 19.3505 5.36612 19.1161C5.60054 18.8817 5.91848 18.75 6.25 18.75H33.75C34.0815 18.75 34.3995 18.8817 34.6339 19.1161C34.8683 19.3505 35 19.6685 35 20ZM6.25 11.25H33.75C34.0815 11.25 34.3995 11.1183 34.6339 10.8839C34.8683 10.6495 35 10.3315 35 10C35 9.66848 34.8683 9.35054 34.6339 9.11612C34.3995 8.8817 34.0815 8.75 33.75 8.75H6.25C5.91848 8.75 5.60054 8.8817 5.36612 9.11612C5.1317 9.35054 5 9.66848 5 10C5 10.3315 5.1317 10.6495 5.36612 10.8839C5.60054 11.1183 5.91848 11.25 6.25 11.25ZM33.75 28.75H6.25C5.91848 28.75 5.60054 28.8817 5.36612 29.1161C5.1317 29.3505 5 29.6685 5 30C5 30.3315 5.1317 30.6495 5.36612 30.8839C5.60054 31.1183 5.91848 31.25 6.25 31.25H33.75C34.0815 31.25 34.3995 31.1183 34.6339 30.8839C34.8683 30.6495 35 30.3315 35 30C35 29.6685 34.8683 29.3505 34.6339 29.1161C34.3995 28.8817 34.0815 28.75 33.75 28.75Z' fill='%23363636'/%3E%3C/svg%3E%0A");
+    width: 4rem;
+    height: 4rem;
+
     display: block;
-    margin-left: 3rem;
-  }
 
-  @include breakpoint($sm-bp) {
-    margin-left: 0;
-    width: 2rem;
-    height: 2rem;
-    margin-right: 0.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 }
 
-.header__menu-button--active,
+
 .menu-button--active {
-  .burger-button-close {
-    #first-line-burger {
-      top: 50%;
-      transform: translateX(-50%) rotate(45deg);
-    }
+  background-image: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.25 23.25L23.25 1.25' stroke='%23363636' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M23.25 23.25L1.25 1.25' stroke='%23363636' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
 
-    #second-line-burger {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-
-    #third-line-burger {
-      top: 50%;
-      bottom: 0;
-      transform: translateX(-50%) rotate(-45deg);
-    }
-  }
+  background-size: 2.5rem;
 }
-
-
-.menu-button--active {}
 
 .overlay {
   position: absolute;
@@ -110,10 +62,16 @@
     font-weight: 600;
     font-size: 1.8rem;
     text-align: center;
-    border-radius: 3.6rem;
     padding: 1rem 1.8rem 0.8rem;
 
     display: block;
+    transition: background-color var(--time);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: #F0F0F0;
+      }
+    }
   }
 }
 
@@ -140,6 +98,16 @@
     width: 2.4rem;
     height: 2.4rem;
     display: block;
+  }
+}
+
+a.menu-phone {
+  transition: color var(--time);
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--secondary-green);
+    }
   }
 }
 
@@ -178,6 +146,13 @@
     font-weight: 700;
     font-size: 1.8rem;
     text-align: center;
+    transition: color var(--time);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: var(--secondary-green);
+      }
+    }
   }
 }
 

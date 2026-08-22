@@ -47,6 +47,11 @@ body {
 
   font-variant-numeric: lining-nums;
   background: var(--primary-white);
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.6rem;
+    line-height: 138%;
+  }
 }
 
 main {
@@ -151,6 +156,14 @@ svg {
   transition-property: border-color, background-color, color;
   transition-duration: var(--time);
 
+  @include breakpoint($xl-bp) {
+    width: 100%;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    font-size: 1.4rem;
+    line-height: 129%;
+  }
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       background: var(--secondary-purp);
@@ -162,12 +175,26 @@ svg {
     border: 0.2rem solid var(--secondary-green);
     background-color: transparent;
     color: var(--secondary-green);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: var(--secondary-green);
+        color: var(--primary-white);
+      }
+    }
   }
 
   &.btn-secondarywhite {
     border: 0.2rem solid var(--primary-white);
     background-color: transparent;
     color: var(--primary-white);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: var(--primary-white);
+        color: var(--secondary-green);
+      }
+    }
   }
 
   &.btn-white {
@@ -194,6 +221,10 @@ h2,
   font-weight: 700;
   font-size: 3.6rem;
   line-height: 120%;
+
+  @include breakpoint($xl-bp) {
+    font-size: 2.6rem;
+  }
 }
 
 h3,
@@ -201,6 +232,10 @@ h3,
   font-weight: 600;
   font-size: 3rem;
   line-height: 100%;
+
+  @include breakpoint($xl-bp) {
+    font-size: 2.4rem;
+  }
 }
 
 .mt-40 {
@@ -341,6 +376,10 @@ input[type="text"] {
     width: 1.4rem;
     height: 1rem;
     --swiper-pagination-bullet-inactive-opacity: 0.3;
+
+    @include breakpoint($xl-bp) {
+      height: 1.4rem;
+    }
   }
 }
 
