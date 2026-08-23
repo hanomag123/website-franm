@@ -11,11 +11,22 @@
   @include breakpoint($xl-bp) {
     display: flex;
     flex-direction: column;
+    gap: 1.2rem;
+
+    margin-top: 2rem;
+
+    padding: 1.6rem;
   }
 }
 
 .footer-column {
   grid-row: 2 span;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .footer-logo {
@@ -28,6 +39,10 @@
   flex-direction: column;
 
   margin-top: 2rem;
+
+  @include breakpoint($xl-bp) {
+    gap: 0.5rem;
+  }
 }
 
 .footer-phone {}
@@ -41,9 +56,17 @@
   align-items: center;
   gap: 0.4rem;
 
+  @include breakpoint($xl-bp) {
+    font-size: 1.6rem;
+    line-height: 138%;
+
+    justify-content: center;
+
+  }
+
   svg {
     width: 2rem;
-    height: 2rems;
+    height: 2rem;
   }
 }
 
@@ -63,6 +86,10 @@ a.footer-link {
 .footer-email {
   font-size: 1.8rem;
   line-height: 144%;
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.6rem;
+  }
 }
 
 .footer-licence {
@@ -71,12 +98,23 @@ a.footer-link {
   line-height: 114%;
 
   margin-top: 1.5rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 2rem;
+  }
 }
 
 .footer-date {
   font-weight: 500;
   font-size: 1.6rem;
   line-height: 125%;
+
+  @include breakpoint($xl-bp) {
+    text-align: center;
+
+    font-size: 1.4rem;
+    line-height: 143%;
+  }
 }
 
 .footer-middle {
@@ -84,6 +122,10 @@ a.footer-link {
 
   display: flex;
   flex-direction: column;
+
+  @include breakpoint($xl-bp) {
+    order: 2;
+  }
 }
 
 .footer-nav {
@@ -100,6 +142,11 @@ a.footer-link {
   @include breakpoint($xl-bp) {
     display: flex;
     flex-direction: column;
+    gap: 0;
+
+    order: 1;
+
+    padding-top: 1.2rem;
   }
 
   a {
@@ -107,6 +154,17 @@ a.footer-link {
     text-decoration-color: transparent;
     text-decoration-skip-ink: none;
     transition: text-decoration-color var(--time);
+
+    @include breakpoint($xl-bp) {
+      padding-top: 0.7rem;
+      padding-bottom: 0.7rem;
+
+      font-weight: 700;
+      font-size: 1.6rem;
+      text-align: center;
+
+      display: block;
+    }
 
     @media (hover: hover) and (pointer: fine) {
       &:hover {
@@ -122,12 +180,23 @@ a.footer-link {
   gap: 6rem;
   justify-content: center;
   margin-top: 3rem;
+
+  @include breakpoint($xl-bp) {
+    gap: 0.8rem;
+    margin-top: 0;
+  }
 }
 
 .footer-btn {
   padding: 0.9rem 2rem;
   font-size: 1.4rem;
   line-height: 100%;
+
+  @include breakpoint($xl-bp) {
+    width: auto;
+
+    padding: 0.6rem 1.2rem;
+  }
 }
 
 .footer-links2 {
@@ -144,7 +213,14 @@ a.footer-link {
   line-height: 125%;
   text-align: center;
 
+  @include breakpoint($xl-bp) {
+    order: 2;
 
+    margin-top: 1.2rem;
+
+    font-size: 1.4rem;
+    line-height: 143%;
+  }
 
   a {
     text-decoration: underline;
@@ -167,12 +243,24 @@ a.footer-link {
 
   padding-top: 1.5rem;
   margin-top: auto;
+
+  @include breakpoint($xl-bp) {
+    order: 3;
+
+    font-size: 1.2rem;
+    line-height: 133%;
+    text-align: center;
+  }
 }
 
 .footer-buttons {
   display: flex;
   flex-direction: column;
   gap: 6.3rem;
+
+  @include breakpoint($xl-bp) {
+    gap: 1.2rem;
+  }
 }
 
 .footer-button {
@@ -196,6 +284,16 @@ a.footer-link {
 
   transition: background-color var(--time), color var(--time);
 
+  @include breakpoint($xl-bp) {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.5rem;
+    min-height: 3rem;
+  }
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       background-color: transparent;
@@ -206,6 +304,11 @@ a.footer-link {
   svg {
     width: 3.7rem;
     height: 2.2rem;
+
+    @include breakpoint($xl-bp) {
+      width: 3rem;
+      height: 1.8rem;
+    }
   }
 }
 
@@ -218,9 +321,23 @@ a.footer-link {
   font-size: 1.6rem;
   line-height: 125%;
 
+  @include breakpoint($xl-bp) {
+    order: 3;
+
+    font-size: 1.4rem;
+    line-height: 143%;
+
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .footer-logo2 {
   width: 15rem;
   height: 3.3rem;
+
+  @include breakpoint($xl-bp) {
+    width: 10rem;
+    height: 2.4rem;
+  }
 }

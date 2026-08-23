@@ -390,10 +390,6 @@ input[type="text"] {
     width: 1.4rem;
     height: 1rem;
     --swiper-pagination-bullet-inactive-opacity: 0.3;
-
-    @include breakpoint($xl-bp) {
-      height: 1.4rem;
-    }
   }
 }
 

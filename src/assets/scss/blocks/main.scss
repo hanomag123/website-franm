@@ -223,6 +223,14 @@
       }
     }
   }
+
+  .swiper-pagination {
+    .swiper-pagination-bullet {
+      @include breakpoint($xl-bp) {
+        height: 1.4rem;
+      }
+    }
+  }
 }
 
 .good-hiddenlink {
@@ -615,6 +623,11 @@
 
   @include breakpoint($xl-bp) {
     padding-top: 0.9rem;
+
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+
+    padding-bottom: 3.2rem;
   }
 
   .swiper-slide {
@@ -640,6 +653,8 @@
       padding: 1.6rem;
       padding-bottom: 1rem;
       min-height: 28rem;
+
+      margin-right: 1.6rem;
     }
   }
 
@@ -774,24 +789,62 @@
 
 .faq {
   padding-top: 2.5rem;
+
+  @include breakpoint($xl-bp) {
+    padding-top: 0.8rem;
+  }
 }
 
 .faq-title {
+  cursor: pointer;
+  position: relative;
+
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  &.opened {
+    &::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    &+.faq-list {
+      display: block;
+    }
+  }
+
   &::after {
     content: '';
-    background-image: url("data:image/svg+xml,%3Csvg width='116' height='24' viewBox='0 0 116 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M34.84 4.90398L36.96 7.02598L25.406 18.584C25.2209 18.7703 25.0007 18.9181 24.7582 19.019C24.5157 19.1199 24.2557 19.1719 23.993 19.1719C23.7304 19.1719 23.4703 19.1199 23.2278 19.019C22.9853 18.9181 22.7652 18.7703 22.58 18.584L11.02 7.02597L13.14 4.90597L23.99 15.754L34.84 4.90398Z' fill='%235FCEC1'/%3E%3Cpath d='M81.16 19.096L79.04 16.974L90.594 5.41603C90.7791 5.22972 90.9993 5.08186 91.2418 4.98096C91.4843 4.88007 91.7443 4.82813 92.007 4.82813C92.2696 4.82813 92.5297 4.88007 92.7722 4.98096C93.0147 5.08186 93.2348 5.22972 93.42 5.41603L104.98 16.974L102.86 19.094L92.01 8.24603L81.16 19.096Z' fill='%235FCEC1'/%3E%3C/svg%3E%0A");
+    background-image: url("data:image/svg+xml,%3Csvg width='48' height='24' viewBox='0 0 48 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M34.84 4.90398L36.96 7.02598L25.406 18.584C25.2209 18.7703 25.0007 18.9181 24.7582 19.019C24.5157 19.1199 24.2557 19.1719 23.993 19.1719C23.7304 19.1719 23.4703 19.1199 23.2278 19.019C22.9853 18.9181 22.7652 18.7703 22.58 18.584L11.02 7.02598L13.14 4.90598L23.99 15.754L34.84 4.90398Z' fill='%235FCEC1'/%3E%3C/svg%3E%0A");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    width: 11.6rem;
+    width: 4.8rem;
     height: 2.4rem;
     margin-left: 2rem;
     display: inline-block;
+    transition: transform var(--time);
+    transform: translateY(-50%);
+
+    @include breakpoint($xl-bp) {
+      position: absolute;
+      top: 50%;
+      right: 0;
+    }
   }
 }
 
 .faq-list {
   margin-top: 1.5rem;
+
+  display: none;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 0.8rem;
+  }
 }
 
 .faq-accordion {
@@ -802,6 +855,17 @@
   border-top: 1px solid var(--secondary-green);
   border-radius: 3rem;
   padding: 1rem 4rem;
+
+  @include breakpoint($xl-bp) {
+    border-radius: 1.6rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  @include breakpoint($xl-bp) {
+    &+& {
+      margin-top: -1px;
+    }
+  }
 }
 
 .faq-h3,
@@ -810,6 +874,11 @@
   font-size: 2rem;
   line-height: 150%;
   transition: color var(--time);
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.6rem;
+    line-height: 138%;
+  }
 }
 
 .faq-summary {
@@ -824,6 +893,11 @@
   -o-user-select: none;
   user-select: none;
 
+  @include breakpoint($xl-bp) {
+    gap: 2rem;
+    align-items: center;
+  }
+
   &::after {
     content: '';
     background-image: url("data:image/svg+xml,%3Csvg width='48' height='24' viewBox='0 0 48 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M34.84 4.90398L36.96 7.02598L25.406 18.584C25.2209 18.7703 25.0007 18.9181 24.7582 19.019C24.5157 19.1199 24.2557 19.1719 23.993 19.1719C23.7304 19.1719 23.4703 19.1199 23.2278 19.019C22.9853 18.9181 22.7652 18.7703 22.58 18.584L11.02 7.02598L13.14 4.90598L23.99 15.754L34.84 4.90398Z' fill='%235BC3B7'/%3E%3C/svg%3E%0A");
@@ -835,6 +909,11 @@
     display: flex;
     flex: 0 0 auto;
     transition: transform var(--time);
+
+    @include breakpoint($xl-bp) {
+      width: 3.6rem;
+      height: 1.8rem;
+    }
 
     details[open] & {
       transform: rotate(180deg);
@@ -874,12 +953,20 @@
   font-weight: 500;
   font-size: 1.8rem;
   line-height: 144%;
-  color: var(--primary-black);
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.6rem;
+    line-height: 138%;
+  }
 
   ul {
     li {
       padding-left: 3rem;
       position: relative;
+
+      @include breakpoint($xl-bp) {
+        padding-left: 2.5rem;
+      }
 
       &::before {
         content: '•';
@@ -894,4 +981,14 @@
   font-weight: 600;
   font-size: 1.8rem;
   color: var(--secondary-green--darke);
+
+  @include breakpoint($xl-bp) {
+    margin-bottom: 3rem;
+    margin-left: 7rem;
+
+    font-size: 1.6rem;
+
+    position: relative;
+    top: 1rem;
+  }
 }
