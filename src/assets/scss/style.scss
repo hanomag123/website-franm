@@ -280,6 +280,11 @@ input[type="text"] {
 
   transition: background-color var(--time);
 
+  @include breakpoint($xl-bp) {
+    font-size: 1.6rem;
+    line-height: 138%;
+  }
+
   &::placeholder {
     color: var(--secondary-purp--shade);
     opacity: 1;
@@ -308,6 +313,10 @@ input[type="text"] {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+
+  @include breakpoint($xl-bp) {
+    align-items: flex-start;
+  }
 
   a {
     text-decoration: underline;
@@ -367,6 +376,11 @@ input[type="text"] {
   font-weight: 500;
   font-size: 1.4rem;
   line-height: 114%;
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.2rem;
+    line-height: 133%;
+  }
 }
 
 .swiper-pagination {
