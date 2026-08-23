@@ -9,13 +9,13 @@
 
   display: flex;
   justify-content: space-between;
-
-  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
   background: var(--prime-white--700);
 
   padding-bottom: 1rem;
 
   backdrop-filter: blur(4px);
+
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
 
   @include breakpoint($xl-bp) {
     padding-top: 1rem;
@@ -23,8 +23,32 @@
 
     align-items: center;
 
-    will-change: none;
+    will-change: auto;
+    transition: background-color var(--time);
+    box-shadow: none;
   }
+
+  &::before {
+    @include breakpoint($xl-bp) {
+      content: '';
+      box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+
+  }
+
+  .menu-opened & {
+    background: var(--white);
+  }
+}
+
+.menu-opened {
+  overflow: hidden;
 }
 
 .out {
@@ -41,6 +65,9 @@
 
   margin-top: auto;
   margin-bottom: auto;
+
+  position: relative;
+  z-index: 20;
 
   @include breakpoint($xl-bp) {
     width: 8.9rem;

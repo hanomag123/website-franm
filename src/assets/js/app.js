@@ -55,6 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const scrollLeft =
         window.pageXOffset || document.documentElement.scrollLeft;
 
+      document.documentElement.classList.add("menu-opened");
+
       // if any scroll is attempted, set this to the previous value;
       window.onscroll = function () {
         window.scrollTo(scrollLeft, scrollTop);
@@ -63,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     enableScroll() {
       window.onscroll = function () {};
+      document.documentElement.classList.remove("menu-opened");
     }
   }
 
@@ -269,18 +272,55 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const reviewspopup = document.getElementById("reviews-popup");
+  if (reviewspopup) {
+    const closebtn = reviewspopup.querySelector(".reviews-close");
+
+    if (closebtn) {
+      closebtn.addEventListener("click", function () {
+        reviewspopup.classList.remove("opened");
+        document.documentElement.classList.remove("disable-scroll");
+      });
+    }
+    reviewspopup.addEventListener("click", function (event) {
+      if (event.target.classList.contains("reviews-overlay")) {
+        reviewspopup.classList.remove("opened");
+        document.documentElement.classList.remove("disable-scroll");
+      }
+    });
+  }
   class ReviewsShowMore extends window.HTMLElement {
     connectedCallback() {
+      this.popup = this.nextElementSibling.classList.contains("reviews-overlay")
+        ? this.nextElementSibling
+        : null;
+      this.content = this.parentElement;
+
       this.init();
     }
     init() {
       if (this.classList.contains("inited")) {
         return;
       }
+      this.inner = reviewspopup.querySelector(".reviews-inner");
 
       this.addEventListener("click", function () {
         this.classList.toggle("active");
+
+        if (xl.matches && reviewspopup) {
+          if (this?.content && this?.inner) {
+            this.inner.innerHTML = this.content.innerHTML;
+            const showmore = this.inner.querySelector("reviews-showmore");
+            if (showmore) {
+              showmore.remove();
+            }
+          }
+          reviewspopup.classList.add("opened");
+          document.documentElement.classList.add("disable-scroll");
+        }
       });
+
+      this.classList.add("inited");
     }
   }
   if (!customElements.get("reviews-showmore")) {

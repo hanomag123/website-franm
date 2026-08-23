@@ -6,15 +6,34 @@
 
   @include breakpoint($xl-bp) {
     display: none;
+
+    position: fixed;
+    top: 8rem;
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 8rem);
+    max-height: calc(100svh - 8rem);
+    overflow-y: auto;
+    background: var(--primary-white);
+
+    flex-direction: column;
+    animation: fadeEffect var(--time);
+
+    padding-top: 1.6rem;
+    padding-bottom: 4rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
   }
 }
 
 .menu--open {
-  transform: translateX(0);
+  display: flex;
 }
 
 .menu-button {
   display: none;
+
   @include breakpoint($xl-bp) {
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M35 20C35 20.3315 34.8683 20.6495 34.6339 20.8839C34.3995 21.1183 34.0815 21.25 33.75 21.25H6.25C5.91848 21.25 5.60054 21.1183 5.36612 20.8839C5.1317 20.6495 5 20.3315 5 20C5 19.6685 5.1317 19.3505 5.36612 19.1161C5.60054 18.8817 5.91848 18.75 6.25 18.75H33.75C34.0815 18.75 34.3995 18.8817 34.6339 19.1161C34.8683 19.3505 35 19.6685 35 20ZM6.25 11.25H33.75C34.0815 11.25 34.3995 11.1183 34.6339 10.8839C34.8683 10.6495 35 10.3315 35 10C35 9.66848 34.8683 9.35054 34.6339 9.11612C34.3995 8.8817 34.0815 8.75 33.75 8.75H6.25C5.91848 8.75 5.60054 8.8817 5.36612 9.11612C5.1317 9.35054 5 9.66848 5 10C5 10.3315 5.1317 10.6495 5.36612 10.8839C5.60054 11.1183 5.91848 11.25 6.25 11.25ZM33.75 28.75H6.25C5.91848 28.75 5.60054 28.8817 5.36612 29.1161C5.1317 29.3505 5 29.6685 5 30C5 30.3315 5.1317 30.6495 5.36612 30.8839C5.60054 31.1183 5.91848 31.25 6.25 31.25H33.75C34.0815 31.25 34.3995 31.1183 34.6339 30.8839C34.8683 30.6495 35 30.3315 35 30C35 29.6685 34.8683 29.3505 34.6339 29.1161C34.3995 28.8817 34.0815 28.75 33.75 28.75Z' fill='%23363636'/%3E%3C/svg%3E%0A");
     width: 4rem;
@@ -25,6 +44,9 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+
+    position: relative;
+    z-index: 20;
   }
 }
 
@@ -36,10 +58,15 @@
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+
+  background: #333;
+  opacity: 0.4;
+  z-index: 10;
 }
 
 .menu-wrap {
@@ -49,6 +76,11 @@
 
   margin-left: auto;
   margin-right: auto;
+
+  @include breakpoint($xl-bp) {
+    width: 100%;
+    gap: 0;
+  }
 }
 
 .menu-list {
@@ -58,6 +90,13 @@
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
   background: var(--primary-white);
 
+  @include breakpoint($xl-bp) {
+    flex-direction: column;
+
+    box-shadow: none;
+
+  }
+
   a {
     font-weight: 600;
     font-size: 1.8rem;
@@ -66,6 +105,12 @@
 
     display: block;
     transition: background-color var(--time);
+
+    @include breakpoint($xl-bp) {
+      font-size: 1.6rem;
+      padding-top: 0.8rem;
+      padding-bottom: 0.8rem;
+    }
 
     @media (hover: hover) and (pointer: fine) {
       &:hover {
@@ -88,6 +133,10 @@
   align-items: center;
   justify-content: flex-end;
   gap: 0.6rem;
+
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
 
   &::before {
     content: '';
@@ -118,6 +167,13 @@ a.menu-phone {
   align-items: flex-start;
 
   margin-top: 1.2rem;
+
+  @include breakpoint($xl-bp) {
+    border-top: 1px solid rgba(153, 153, 153, 0.4);
+    padding-top: 1.6rem;
+    margin-top: 0;
+    justify-content: center;
+  }
 }
 
 .menu-column {
@@ -125,12 +181,32 @@ a.menu-phone {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+
+  @include breakpoint($xl-bp) {
+    gap: 0.8rem;
+    flex-direction: row;
+  }
 }
 
 .menu-btn {
   padding: 0.4rem 1.2rem;
   font-size: 1.6rem;
   line-height: 125%;
+
+  @include breakpoint($xl-bp) {
+    width: auto;
+
+    font-size: 1.4rem;
+    line-height: 129%;
+
+    padding: 0.4rem 1rem;
+  }
+}
+
+.menu-btn1 {
+  @include breakpoint($xl-bp) {
+    order: 1;
+  }
 }
 
 .menu-pages {}
@@ -142,11 +218,22 @@ a.menu-phone {
 
   margin-top: 1.05rem;
 
+  @include breakpoint($xl-bp) {
+    flex-direction: column;
+    padding-top: 1.6rem;
+    border-top: 1px solid rgba(153, 153, 153, 0.4);
+    gap: 1.6rem;
+  }
+
   a {
     font-weight: 700;
     font-size: 1.8rem;
     text-align: center;
     transition: color var(--time);
+
+    @include breakpoint($xl-bp) {
+      font-size: 1.6rem;
+    }
 
     @media (hover: hover) and (pointer: fine) {
       &:hover {
@@ -161,4 +248,8 @@ a.menu-phone {
   font-size: 1.4rem;
   line-height: 114%;
   color: var(--secondary-grey);
+
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
 }
