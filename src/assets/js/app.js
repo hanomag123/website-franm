@@ -354,4 +354,83 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  // Полный вариант с установкой cookie
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+    return null;
+  }
+
+  function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+      const date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      expires = `; expires=${date.toUTCString()}`;
+    }
+    document.cookie = `${name}=${value || ""}${expires}; path=/`;
+  }
+
+  const cookieShown = getCookie("cookie_shown");
+
+  if (cookieShown !== "true") {
+    const cookieItem = document.querySelector("[data-cookies]");
+    if (cookieItem) {
+      setTimeout(() => {
+        cookieItem.classList.add("_active");
+
+        const acceptBtn = cookieItem.querySelector("[data-cookies-accept]");
+        if (acceptBtn) {
+          acceptBtn.addEventListener("click", () => {
+            setCookie("cookie_shown", "true", 365);
+            cookieItem.classList.remove("_active");
+          });
+        }
+      }, 100);
+    }
+  }
+
+  const modals = document.querySelectorAll(".modal");
+
+  if (modals.length) {
+    modals.forEach((el) => {
+      el.openModal = function () {
+        document.documentElement.classList.add("modal-opened");
+        el.classList.add("open");
+      };
+      el.closeModal = function () {
+        document.documentElement.classList.remove("modal-opened");
+        el.classList.remove("open");
+      };
+      el.addEventListener("click", function (event) {
+        if (event.target.classList.contains("modal")) {
+          el.closeModal();
+        }
+      });
+    });
+  }
+
+  const closebtns = document.querySelectorAll("[data-close-modal]");
+  if (closebtns.length) {
+    closebtns.forEach((el) => {
+      el.addEventListener("click", function () {
+        const modal = this.closest(".modal");
+        if (modal && "closeModal" in modal) {
+          modal.closeModal();
+        }
+      });
+    });
+  }
+
+  document.addEventListener("click", (event) => {
+    const closest = event.target.closest("[data-modal]");
+    if (closest) {
+      const modal = document.getElementById(closest.dataset.modal);
+      if (modal) {
+        modal.openModal();
+      }
+    }
+  });
 });
