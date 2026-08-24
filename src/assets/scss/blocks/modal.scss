@@ -25,12 +25,28 @@
   }
 
   @include breakpoint($sm-bp) {
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 1.6rem;
+    padding-left: 1.6rem;
   }
 
   &.open {
     display: flex;
+  }
+
+  &.--feedback {
+    align-items: flex-end;
+    .modal-block {
+      box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+      background: var(--primary-white);
+
+      max-width: 54.3rem;
+      padding: 4rem;
+      margin-bottom: 22.7rem;
+
+      @include breakpoint($xl-bp) {
+        padding: 1.6rem;
+      }
+    }
   }
 }
 
@@ -67,7 +83,7 @@
 
   width: 3.2rem;
   height: 3.2rem;
-  
+
   color: var(--white);
 
   transition: border-color var(--time);
@@ -106,4 +122,29 @@
 .modal-submit {
   margin-top: 0.8rem;
   margin-left: auto;
+}
+
+.feedback-title {
+  display: flex;
+  gap: 2.4rem;
+
+  @include breakpoint($xl-bp) {
+    font-size: 2rem;
+  }
+
+  &::before {
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg width='50' height='52' viewBox='0 0 50 52' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.5 27.3L18.3621 39L42.5 13' stroke='%235BC3B7' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 5rem;
+    height: 5.2rem;
+    flex: 0 0 auto;
+
+    @include breakpoint($xl-bp) {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
 }
