@@ -146,7 +146,13 @@ document.addEventListener("DOMContentLoaded", () => {
       prevScrollpos = 0;
       currentScrollPos = 0;
     }
-    const num = xl.matches ? 50 : 100;
+    const num = xl.matches ? 100 : 150;
+    const num2 = xl.matches ? 200 : 250;
+    if (currentScrollPos > num2) {
+      header.classList.add('header--active2')
+    } else {
+      header.classList.remove('header--active2')
+    }
     if (currentScrollPos > num) {
       header.classList.add("header--active");
     } else {
@@ -154,8 +160,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (prevScrollpos >= currentScrollPos) {
       header.classList.remove("out");
+      header.classList.add('up')
     } else {
       header.classList.add("out");
+      header.classList.remove('up')
     }
     prevScrollpos = currentScrollPos;
   }
