@@ -112,6 +112,10 @@
       padding-bottom: 0.8rem;
     }
 
+    &.active {
+      background-color: #F0F0F0;
+    }
+
     @media (hover: hover) and (pointer: fine) {
       &:hover {
         background-color: #F0F0F0;
