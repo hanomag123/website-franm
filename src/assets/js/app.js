@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ... */
     handler = throttle(function (event) {
       scrollHeader();
-    }, 500);
+    }, 150);
     document.addEventListener("scroll", handler, false);
   }
 
@@ -146,8 +146,8 @@ document.addEventListener("DOMContentLoaded", () => {
       prevScrollpos = 0;
       currentScrollPos = 0;
     }
-    const num = xl.matches ? 150 : 150;
-    const num2 = header.offsetHeight * 2;
+    const num = xl.matches ? header.offsetHeight * 2 : header.offsetHeight;
+    const num2 = xl.matches ? header.offsetHeight * 4 : header.offsetHeight * 2;
 
     if (currentScrollPos > num2) {
       header.classList.add("header--active2");
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
       window.pageYOffset ||
       document.documentElement.scrollTop ||
       document.body.scrollTop;
-    const num = xl.matches ? 150 : 150;
+    const num = xl.matches ? 80 : 150;
     if (currentScrollPos > num) {
       header.classList.add("header--active");
     } else {
