@@ -102,6 +102,9 @@
       a {
         padding-left: 3.4rem;
         border-radius: 0 0 0 1.6rem;
+        @include breakpoint($xl-bp) {
+          padding: 0.8rem 0;
+        }
       }
     }
 
@@ -109,6 +112,9 @@
       a {
         padding-right: 3.4rem;
         border-radius: 0 0 1.6rem 0;
+        @include breakpoint($xl-bp) {
+          padding: 0.8rem 0;
+        }
       }
     }
   }
@@ -126,6 +132,7 @@
       font-size: 1.6rem;
       padding-top: 0.8rem;
       padding-bottom: 0.8rem;
+      border-radius: 0.8rem;
     }
 
     &.active {
