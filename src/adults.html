@@ -101,7 +101,7 @@ title: Взрослым
     <h2 class="mcatalog-title h2 text-lgreen">Каталог курсов</h2>
 
     <div class="mcatalog-btns">
-      <button class="mcatalog-btn active" aria-label="box">
+      <button class="mcatalog-btn active" aria-label="grid" data-layout="grid">
         <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="10" y="10" width="8.33333" height="8.33333" rx="2.5" stroke="currentColor" stroke-width="1.6" />
           <rect x="21.5" y="10" width="8.33333" height="8.33333" rx="2.5" stroke="currentColor" stroke-width="1.6" />
@@ -109,7 +109,7 @@ title: Взрослым
           <rect x="21.5" y="21.5" width="8.33333" height="8.33333" rx="2.5" stroke="currentColor" stroke-width="1.6" />
         </svg>
       </button>
-      <button class="mcatalog-btn" aria-label="list">
+      <button class="mcatalog-btn" aria-label="list"  data-layout="list">
         <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="10" y="10" width="20" height="4.53333" rx="1.6" stroke="currentColor" stroke-width="1.6" />
           <rect x="10" y="17.7334" width="20" height="4.53333" rx="1.6" stroke="currentColor" stroke-width="1.6" />
@@ -119,7 +119,7 @@ title: Взрослым
     </div>
   </div>
 
-  <div class="catalog-list">
+  <div class="catalog-list" id="catalog" data-layout="grid">
     @loop('./partials/catalog-item.html', [
     {
     img: '1.webp',

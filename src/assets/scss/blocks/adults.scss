@@ -209,6 +209,9 @@
     padding-right: 1.6rem;
 
     margin-top: 0;
+
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -255,6 +258,8 @@
   height: 4rem;
   color: var(--secondary-green);
 
+  transition: background-color var(--time);
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       background-color: #F0F0F0;
@@ -280,6 +285,11 @@
   }
 
   @include breakpoint($sm-bp) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &[data-layout="list"] {
     display: flex;
     flex-direction: column;
   }

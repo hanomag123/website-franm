@@ -494,4 +494,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+
+  const btns = document.querySelectorAll("[data-layout]");
+  const catalog = document.getElementById("catalog");
+  if (catalog && btns.length) {
+    btns.forEach((el) => {
+      el.addEventListener("click", function () {
+        catalog.dataset.layout = this.dataset.layout;
+        btns.forEach((el) => el.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  }
 });
