@@ -250,6 +250,10 @@
 
 .mcatalog-btns {
   display: flex;
+
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
 }
 
 .mcatalog-btn {
@@ -292,6 +296,37 @@
   &[data-layout="list"] {
     display: flex;
     flex-direction: column;
+
+    gap: 1.3rem;
+
+    .catalog-item {
+      padding: 1.2rem 4rem;
+      display: flex;
+      flex-direction: row;
+      gap: 4rem;
+      min-height: 13.8rem;
+    }
+
+    .catalog-tag {
+      top: 1.3rem;
+      right: 1.4rem;
+      left: auto;
+    }
+
+    .catalog-img {
+      width: 14rem;
+      height: 11.4rem;
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    .catalog-subtitle {
+      text-align: start;
+    }
+
+    .catalog-date {
+      justify-content: flex-start;
+    }
   }
 }
 
@@ -322,7 +357,7 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      &~.catalog-subtitle {
+      &~.catalog-block .catalog-subtitle {
         color: var(--secondary-purp);
       }
     }
@@ -354,6 +389,12 @@
   margin-right: auto;
 
   mix-blend-mode: multiply;
+
+  flex:  0 0 auto;
+}
+
+.catalog-block {
+  flex-grow: 1;
 }
 
 .catalog-subtitle {

@@ -12,9 +12,9 @@ html {
   box-sizing: border-box;
   font-size: calc(100vw / 1920 * 10);
 
-  @include breakpoint($cos-bp) {
-    font-size: calc(100vw / 1440 * 10);
-  }
+  // @include breakpoint($cos-bp) {
+  //   font-size: calc(100vw / 1440 * 10);
+  // }
 
   @include breakpoint($xl-bp) {
     font-size: calc(100vw / 768 * 10);
