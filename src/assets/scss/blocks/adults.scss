@@ -122,6 +122,11 @@
   gap: 4rem;
 
   margin-top: 1.5rem;
+
+  @include breakpoint($xl-bp) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
 }
 
 .method-li {}
@@ -196,7 +201,7 @@
 
   padding-top: 8rem;
   padding-bottom: 1rem;
-  
+
   margin-top: -7rem;
 
   @include breakpoint($xl-bp) {
@@ -229,4 +234,151 @@
       }
     }
   }
+}
+
+.mcatalog {}
+
+.mcatalog-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mcatalog-title {}
+
+.mcatalog-btns {
+  display: flex;
+}
+
+.mcatalog-btn {
+  border-radius: 1rem;
+  width: 4rem;
+  height: 4rem;
+  color: var(--secondary-green);
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: #F0F0F0;
+    }
+  }
+
+  &.active {
+    background: var(--secondary-green);
+    color: var(--primary-white);
+  }
+}
+
+.catalog-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4rem;
+
+  margin-top: 2.5rem;
+
+  @include breakpoint($xl-bp) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
+
+  @include breakpoint($sm-bp) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.catalog-item {
+  border: 2px solid var(--secondary-green);
+  border-radius: 3rem;
+  padding: 2.4rem 1.2rem 1.2rem;
+
+  box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.12);
+  background: var(--primary-white--2);
+
+  position: relative;
+
+  min-height: 32rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.catalog-hiddenlink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+
+  z-index: 1;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      &~.catalog-subtitle {
+        color: var(--secondary-purp);
+      }
+    }
+  }
+}
+
+.catalog-tag {
+  background: var(--secondary-purp--light);
+
+  border-radius: 3rem;
+  padding: 0 1.2rem;
+
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 144%;
+  text-align: center;
+  color: var(--primary-white);
+
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+}
+
+.catalog-img {
+  width: 16rem;
+  height: 13rem;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  mix-blend-mode: multiply;
+}
+
+.catalog-subtitle {
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 122%;
+  text-align: center;
+  color: var(--secondary-green--darke);
+
+  margin-top: 1.1rem;
+
+  transition: color var(--time);
+}
+
+.catalog-date {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 114%;
+  color: var(--secondary-purp--shade);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+
+  margin-top: auto;
+  padding-top: 1rem;
+
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}
+
+.catalog-innertext {
+  position: relative;
+  top: 1px;
 }

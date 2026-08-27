@@ -1,3 +1,8 @@
+---
+layout: default
+title: Взрослым
+---
+
 <section class="adults container">
   <ul class="breadcrumbs">
     <li><a href="main.html">Главная</a></li>
@@ -85,8 +90,82 @@
     </div>
 
     <div class="method-text">
-      Если говорить научным языком, <a href="#">ФрАНМ</a> влияет путем фрактальной модуляции несущей звуковой волны в частотных диапазонах биоэлектрической активности здорового мозга, которая быстро и глубоко нормализует функциональную организацию нейронных связей мозга. Более подробно можно узнать в разделе <a href="#">научная база</a>.
+      Если говорить научным языком, <a href="#">ФрАНМ</a> влияет путем фрактальной модуляции несущей звуковой волны в частотных диапазонах биоэлектрической активности здорового мозга, которая быстро и глубоко нормализует функциональную организацию нейронных связей мозга. Более подробно можно узнать
+      в разделе <a href="#">научная база</a>.
     </div>
+  </div>
+</section>
+
+<section class="mcatalog container mt-40">
+  <div class="mcatalog-head">
+    <h2 class="mcatalog-title h2 text-lgreen">Каталог курсов</h2>
+
+    <div class="mcatalog-btns">
+      <button class="mcatalog-btn active" aria-label="box">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="8.33333" height="8.33333" rx="2.5" stroke="currentColor" stroke-width="1.6" />
+          <rect x="21.5" y="10" width="8.33333" height="8.33333" rx="2.5" stroke="currentColor" stroke-width="1.6" />
+          <rect x="10" y="21.5" width="8.33333" height="8.33333" rx="2.5" stroke="currentColor" stroke-width="1.6" />
+          <rect x="21.5" y="21.5" width="8.33333" height="8.33333" rx="2.5" stroke="currentColor" stroke-width="1.6" />
+        </svg>
+      </button>
+      <button class="mcatalog-btn" aria-label="list">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="20" height="4.53333" rx="1.6" stroke="currentColor" stroke-width="1.6" />
+          <rect x="10" y="17.7334" width="20" height="4.53333" rx="1.6" stroke="currentColor" stroke-width="1.6" />
+          <rect x="10" y="25.4664" width="20" height="4.53333" rx="1.6" stroke="currentColor" stroke-width="1.6" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="catalog-list">
+    @loop('./partials/catalog-item.html', [
+    {
+    img: '1.webp',
+    title: 'Эмоциональный баланс'
+    },
+    {
+    img: '2.webp',
+    title: 'Снижение уровня <br>стресса и повышение стрессоустойчивости'
+    },
+    {
+    img: '3.webp',
+    title: 'Улучшение креативных способностей'
+    },
+    {
+    img: '4.webp',
+    title: 'Профилактика и коррекция профессионального <br>выгорания'
+    },
+    {
+    img: '5.webp',
+    title: 'Профилактика и коррекция профессионального <br>выгорания'
+    },
+    {
+    img: '6.webp',
+    title: 'Профилактика и коррекция профессионального <br>выгорания'
+    },
+    {
+    img: '7.webp',
+    title: 'Профилактика и коррекция профессионального <br>выгорания'
+    },
+    {
+    img: '8.webp',
+    title: 'Профилактика и коррекция профессионального <br>выгорания'
+    },
+    {
+    img: '9.webp',
+    title: 'Профилактика и коррекция профессионального <br>выгорания'
+    },
+    {
+    img: '10.webp',
+    title: 'Профилактика и коррекция профессионального <br>выгорания'
+    },
+    {
+    img: '11.webp',
+    title: 'Коррекция симптомов ПТСР'
+    },
+    ])
   </div>
 </section>
 
