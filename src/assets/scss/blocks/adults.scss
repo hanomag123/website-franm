@@ -98,6 +98,7 @@
 
   p {
     margin-bottom: 2rem;
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -109,25 +110,123 @@
   padding-bottom: 0.8rem;
 }
 
-.method {
-}
+.method {}
+
 .method-title {
+  max-width: 100rem;
 }
+
 .method-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4rem;
+
+  margin-top: 1.5rem;
 }
-.method-li {
-}
+
+.method-li {}
+
 .method-img {
+  width: 14rem;
+  height: 12rem;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .method-subtitle {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 150%;
+  text-align: center;
+  color: var(--secondary-green--darke);
+
+  margin-top: 2rem;
 }
+
 .method-desc {
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 150%;
+  text-align: center;
 }
+
 .method-info {
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 150%;
+  color: var(--primary-white);
+  background: var(--secondary-green);
+  border: 1px solid var(--secondary-green--darke);
+  border-radius: 3.2rem;
+  padding: 0 4rem;
+
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  margin-top: 4rem;
+
+  min-height: 7rem;
+
+  position: relative;
+  z-index: 1;
 }
+
+.method-icon {
+  width: 6.4rem;
+  height: 6.4rem;
+
+  flex: 0 0 auto;
+}
+
 .method-block {
+  display: flex;
+  align-items: center;
+  gap: 12rem;
+
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
+  background: var(--primary-white--2);
+
+  border: 2px solid var(--primary-white--shade);
+  border-radius: 3.2rem;
+
+  padding-left: 12rem;
+  padding-right: 12rem;
+
+  padding-top: 8rem;
+  padding-bottom: 1rem;
+  
+  margin-top: -7rem;
+
+  @include breakpoint($xl-bp) {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+
+    margin-top: 0;
+  }
 }
+
 .method-picture {
+  width: 21.1rem;
+  height: 15rem;
+  max-width: 100%;
+
+  flex: 0 0 auto;
 }
+
 .method-text {
+  a {
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: var(--secondary-green--darke);
+    transition: text-decoration-color var(--time);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        text-decoration-color: transparent;
+      }
+    }
+  }
 }

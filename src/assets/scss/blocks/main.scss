@@ -491,7 +491,7 @@
 
 .how-btn {
   margin-top: -14.6rem;
-  margin-bottom: 13.6rem;
+  margin-bottom: 9.6rem;
   margin-left: auto;
   margin-right: auto;
 
@@ -502,6 +502,7 @@
 }
 
 .consult {
+  margin-top: 4rem;
   @include breakpoint($xl-bp) {
     margin-top: 2rem;
   }
