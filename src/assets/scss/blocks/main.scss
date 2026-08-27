@@ -64,13 +64,20 @@
   position: absolute;
   top: 0;
   right: 0;
-  max-width: 100%;
+  max-width: 91.6rem;
 
   @include breakpoint($xl-bp) {
     width: calc(100% + 3.2rem);
     max-width: calc(100% + 3.2rem);
     position: relative;
     left: -1.6rem;
+  }
+
+  img {
+    object-position: right;
+    @include breakpoint($xl-bp) {
+      object-position: center;
+    }
   }
 }
 

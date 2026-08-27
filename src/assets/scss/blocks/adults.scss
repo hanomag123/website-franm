@@ -29,6 +29,14 @@
     left: -1.6rem;
     margin-top: 2rem;
   }
+
+  img {
+    object-position: right;
+
+    @include breakpoint($xl-bp) {
+      object-position: center;
+    }
+  }
 }
 
 .breadcrumbs {
