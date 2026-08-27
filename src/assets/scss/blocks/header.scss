@@ -59,6 +59,10 @@
   }
 }
 
+.header--active2.scrolled {
+  position: sticky;
+}
+
 .header--active2.up {
   transition: transform .4s;
 }

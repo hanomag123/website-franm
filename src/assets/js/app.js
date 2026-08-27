@@ -150,9 +150,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const num2 = header.offsetHeight * 2;
 
     if (currentScrollPos > num2) {
-      header.classList.add('header--active2')
+      header.classList.add("header--active2");
     } else {
-      header.classList.remove('header--active2')
+      header.classList.remove("header--active2");
     }
     if (currentScrollPos > num) {
       header.classList.add("header--active");
@@ -161,17 +161,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (prevScrollpos >= currentScrollPos) {
       header.classList.remove("out");
-      header.classList.add('up')
+      header.classList.add("up");
     } else {
       header.classList.add("out");
-      header.classList.remove('up')
+      header.classList.remove("up");
     }
 
-    if (header.classList.contains('header--active2')) {
-      header.classList.add('scrolled')
+    if (header.classList.contains("header--active2")) {
+      header.classList.add("scrolled");
     }
     if (currentScrollPos === 0) {
-      header.classList.remove('scrolled')
+      header.classList.remove("scrolled");
     }
     prevScrollpos = currentScrollPos;
   }
@@ -289,23 +289,26 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const reviewspopup = document.getElementById("reviews-popup");
-  if (reviewspopup) {
-    const closebtn = reviewspopup.querySelector(".reviews-close");
 
-    if (closebtn) {
-      closebtn.addEventListener("click", function () {
-        reviewspopup.classList.remove("opened");
-        document.documentElement.classList.remove("disable-scroll");
+  class ReviewsShowMore extends window.HTMLElement {
+    static instances = [];
+
+    constructor() {
+      super();
+      ReviewsShowMore.instances.push(this);
+
+      // Bind event handler to allow proper removal
+      this._clickHandler = this._handleClick.bind(this);
+    }
+
+    static closeAllReviews() {
+      ReviewsShowMore.instances.forEach((instance) => {
+        if (instance) {
+          instance.classList.remove("active");
+        }
       });
     }
-    reviewspopup.addEventListener("click", function (event) {
-      if (event.target.classList.contains("reviews-overlay")) {
-        reviewspopup.classList.remove("opened");
-        document.documentElement.classList.remove("disable-scroll");
-      }
-    });
-  }
-  class ReviewsShowMore extends window.HTMLElement {
+
     connectedCallback() {
       this.popup = this.nextElementSibling.classList.contains("reviews-overlay")
         ? this.nextElementSibling
@@ -314,33 +317,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
       this.init();
     }
+
     init() {
-      if (this.classList.contains("inited")) {
-        return;
-      }
-      this.inner = reviewspopup.querySelector(".reviews-inner");
+      this.inner = reviewspopup?.querySelector(".reviews-inner");
 
-      this.addEventListener("click", function () {
-        this.classList.toggle("active");
-
-        if (xl.matches && reviewspopup) {
-          if (this?.content && this?.inner) {
-            this.inner.innerHTML = this.content.innerHTML;
-            const showmore = this.inner.querySelector("reviews-showmore");
-            if (showmore) {
-              showmore.remove();
-            }
-          }
-          reviewspopup.classList.add("opened");
-          document.documentElement.classList.add("disable-scroll");
-        }
-      });
+      // Use bound handler instead of anonymous function
+      this.addEventListener("click", this._clickHandler);
 
       this.classList.add("inited");
     }
+
+    _handleClick() {
+      this.classList.add("active");
+
+      if (reviewspopup) {
+        if (this?.content && this?.inner) {
+          this.inner.innerHTML = this.content.innerHTML;
+          const showmore = this.inner.querySelector("reviews-showmore");
+          if (showmore) {
+            showmore.remove();
+          }
+        }
+        reviewspopup.classList.add("opened");
+        document.documentElement.classList.add("disable-scroll");
+      }
+    }
+
+    disconnectedCallback() {
+      // Remove event listener to prevent memory leaks
+      this.removeEventListener("click", this._clickHandler);
+
+      // Clear references to DOM elements
+      this.popup = null;
+      this.content = null;
+      this.inner = null;
+
+      // Remove from static instances array
+      const index = ReviewsShowMore.instances.indexOf(this);
+      if (index > -1) {
+        ReviewsShowMore.instances.splice(index, 1);
+      }
+
+      // Clean up any inner HTML content to free memory
+      if (this.inner) {
+        this.inner.innerHTML = "";
+      }
+
+      // If popup is open, clean up
+      if (this.popup) {
+        this.popup.classList.remove("opened");
+        document.documentElement.classList.remove("disable-scroll");
+      }
+
+      // Additional cleanup: remove any inline styles or event listeners
+      // that might have been added by third-party code
+      this.replaceWith(this.cloneNode(true)); // Optional: removes all event listeners
+    }
   }
+
   if (!customElements.get("reviews-showmore")) {
     window.customElements.define("reviews-showmore", ReviewsShowMore);
+  }
+
+  if (reviewspopup) {
+    const closebtn = reviewspopup.querySelector(".reviews-close");
+
+    if (closebtn) {
+      closebtn.addEventListener("click", function () {
+        reviewspopup.classList.remove("opened");
+        document.documentElement.classList.remove("disable-scroll");
+        ReviewsShowMore.closeAllReviews();
+      });
+    }
+    reviewspopup.addEventListener("click", function (event) {
+      if (event.target.classList.contains("reviews-overlay")) {
+        reviewspopup.classList.remove("opened");
+        document.documentElement.classList.remove("disable-scroll");
+        ReviewsShowMore.closeAllReviews();
+      }
+    });
   }
 
   const reviews = document.querySelectorAll(".reviews-swiper");
@@ -356,16 +411,6 @@ document.addEventListener("DOMContentLoaded", () => {
         pagination: {
           el: pagination,
           clickable: true,
-        },
-        on: {
-          beforeTransitionStart: () => {
-            const showmore = swiper.querySelectorAll(".reviews-showmore");
-            if (showmore.length) {
-              showmore.forEach((el) => {
-                el.classList.remove("active");
-              });
-            }
-          },
         },
       });
     });
