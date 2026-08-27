@@ -1,15 +1,17 @@
-<section class="consult container">
-  <div class="consult-inner">
-    <h2 class="consult-title h3 text-white">Получить бесплатную консультацию у специалиста</h2>
+<div class="modal" id="modal2">
+  <div class="modal-block">
+    <button type="button" class="modal-close" aria-label="close modal" data-close-modal></button>
 
-    <form action="#" id="consult-modal">
-      <div class="consult-form">
-        <input type="text" name="name" placeholder="Фамилия Имя Отчество*" required>
-        <input type="tel" name="tel" placeholder="+7 (___)___-__-__*" required>
+    <div class="modal-title h3 text-white">Получить бесплатную консультацию у специалиста</div>
+
+    <form>
+      <div class="modal-form">
+        <input type="text" name="name" placeholder="ФИО*" required>
+        <input type="tel" name="tel" placeholder="Телефон*" required>
         <input type="email" name="email" placeholder="Эл. почта">
         <input type="text" name="message" placeholder="Сообщение">
 
-        <div class="consult-labels">
+        <div class="consult-labels modal-labels">
           <label class="checkbox consult-label">
             <input type="checkbox" name="acceptance" required>
             <span class="checkbox-box"></span>
@@ -22,8 +24,8 @@
           </label>
         </div>
 
-        <button type="submit" class="btn btn-white consult-submit">Отправить</button>
+        <button type="submit" class="btn btn-white consult-submit modal-submit">Отправить</button>
       </div>
     </form>
   </div>
-</section>
+</div>

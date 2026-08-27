@@ -164,17 +164,10 @@
 
   .swiper-slide {
     width: calc(100% / 4 - 3rem);
-    box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.12);
     background: var(--primary-white--2);
-
-    border-radius: 3rem;
-    border: 2px solid var(--secondary-green);
 
     margin-right: 4rem;
     height: auto;
-
-    display: flex;
-    flex-direction: column;
 
     position: relative;
 
@@ -183,6 +176,9 @@
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
+
+    display: flex;
+    flex-direction: column;
 
     @include breakpoint($xl-bp) {
       width: 100%;
@@ -193,7 +189,9 @@
     }
 
     &.purple {
-      border-color: var(--secondary-purp);
+      .good-inner {
+        border-color: var(--secondary-purp);
+      }
 
       .good-subtitle {
         color: var(--secondary-purp);
@@ -214,7 +212,7 @@
       .good-hiddenlink {
         @media (hover: hover) and (pointer: fine) {
           &:hover {
-            &~.good-cta {
+            &~.good-inner .good-cta {
               background-color: transparent;
               color: var(--secondary-purp);
             }
@@ -233,6 +231,18 @@
   }
 }
 
+.good-inner {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow var(--time);
+
+  border-radius: 3rem;
+  border: 2px solid var(--secondary-green);
+
+  flex-grow: 1;
+}
+
 .good-hiddenlink {
   position: absolute;
   top: 0;
@@ -244,7 +254,11 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      &~.good-cta {
+      &~.good-inner {
+        box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.2);
+      }
+
+      &~.good-inner .good-cta {
         background-color: transparent;
         color: var(--secondary-green);
       }
@@ -635,27 +649,21 @@
   }
 
   .swiper-slide {
-    border: 2px solid var(--secondary-greenp--light);
-    border-radius: 3rem;
-    padding: 2rem;
-    padding-bottom: 0;
-
-    box-shadow: 7px 8px 10px 0 rgba(0, 0, 0, 0.08);
-    background: var(--primary-white--2);
-
     margin-right: 4rem;
 
     width: calc(100% / 4 - 3rem);
-
+    border: 2px solid var(--secondary-greenp--light);
+    border-radius: 3rem;
     min-height: 30.9rem;
+    background: var(--primary-white--2);
 
     display: flex;
     flex-direction: column;
 
+    position: relative;
+
     @include breakpoint($xl-bp) {
       width: 29.4rem;
-      padding: 1.6rem;
-      padding-bottom: 0;
       min-height: 28rem;
 
       margin-right: 1.6rem;
@@ -666,6 +674,35 @@
   .swiper-pagination {
     bottom: 0;
   }
+}
+
+.reviews-wrap {
+  padding: 2rem;
+  padding-bottom: 0;
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  @include breakpoint($xl-bp) {
+    padding: 1.6rem;
+    padding-bottom: 0;
+  }
+
+  &::before {
+    content: '';
+    box-shadow: 7px 8px 10px 0 rgba(0, 0, 0, 0.08);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: box-shadow var(--time);
+    border-radius: 3rem;
+    pointer-events: none;
+  }
+
+  @include breakpoint($xl-bp) {}
 }
 
 .reviews-column {
@@ -762,6 +799,14 @@
 
   position: relative;
   max-width: 40rem;
+
+  .reviews-wrap {
+    padding: 0;
+
+    &::before {
+      content: normal;
+    }
+  }
 }
 
 .reviews-close {
@@ -800,53 +845,6 @@
   scrollbar-gutter: stable;
 }
 
-/* Modern browsers — Chrome 121+, Edge 121+, Firefox, Safari 18.2+ */
-* {
-  scrollbar-width: 10px;
-  scrollbar-color: #5bc3b7 #ffffff;
-}
-
-/* Legacy WebKit — older Chrome/Edge/Safari, radius, borders & shadows */
-*::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-*::-webkit-scrollbar-track {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 1px;
-}
-
-*::-webkit-scrollbar-track:hover {
-  background-color: #ffffff;
-}
-
-*::-webkit-scrollbar-track:active {
-  background-color: #ffffff;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #5bc3b7;
-  border-radius: 8px;
-  min-height: 30px;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background-color: #5bc3b7;
-}
-
-*::-webkit-scrollbar-thumb:active {
-  background-color: #5bc3b7;
-}
-
-*::-webkit-scrollbar-button {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-
 .reviews-showmore {
   font-weight: 600;
   font-size: 1.8rem;
@@ -858,6 +856,9 @@
   text-align: start;
   padding-top: 1rem;
   padding-bottom: 1.5rem;
+
+  padding-left: 2rem;
+  padding-right: 2rem;
 
   cursor: pointer;
 
@@ -871,9 +872,18 @@
 
   order: 1;
 
+  position: relative;
+  z-index: 2;
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       color: var(--secondary-green--darke);
+
+      &~.reviews-wrap {
+        &::before {
+          box-shadow: 7px 8px 10px 0 rgba(0, 0, 0, 0.2);
+        }
+      }
     }
   }
 
@@ -966,23 +976,27 @@
 }
 
 .faq-accordion {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   background: var(--primary-white);
   border-bottom: 1px solid var(--secondary-green);
   border-top: 1px solid var(--secondary-green);
   border-radius: 3rem;
   padding: 1rem 4rem;
+  padding-top: 0;
+
+  transition: background-color var(--time);
 
   @include breakpoint($xl-bp) {
     border-radius: 1.6rem;
     padding: 0.8rem 1.2rem;
+    padding-top: 0;
   }
 
-  @include breakpoint($xl-bp) {
-    &+& {
-      margin-top: -1px;
-    }
+  &+& {
+    margin-top: -1px;
+  }
+
+  &[open] {
+    background: var(--primary-white--2);
   }
 }
 
@@ -1000,6 +1014,7 @@
 }
 
 .faq-summary {
+  padding-top: 1rem;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
@@ -1014,6 +1029,7 @@
   @include breakpoint($xl-bp) {
     gap: 2rem;
     align-items: center;
+    padding-top: 0.8rem;
   }
 
   &::after {

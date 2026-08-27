@@ -1,5 +1,6 @@
 .modal-opened {
   overflow: hidden;
+  scrollbar-gutter: stable;
 }
 
 .modal {
@@ -117,7 +118,12 @@
   margin-top: 0.8rem;
 }
 
-.modal-title {}
+.modal-title {
+  padding-right: 2rem;
+  @include breakpoint($xl-bp) {
+    padding-right: 0;
+  }
+}
 
 .modal-submit {
   margin-top: 0.8rem;

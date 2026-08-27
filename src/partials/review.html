@@ -1,24 +1,26 @@
 <div class="swiper-slide">
-  <div class="reviews-author">
-    @if(img) {
-    <div class="reviews-img img-cover">
-      <img src="./assets/images/reviews/@img.png" alt="@name" loading="lazy" width="80" height="80">
-    </div>
-    }
-
-
-    <div class="reviews-column">
-      <h3 class="reviews-name">@name</h3>
-      <div class="reviews-occup">@occup</div>
-    </div>
-  </div>
-
   <reviews-showmore role="button" class="reviews-showmore">
     <span class="show">Читать весь отзыв</span>
     <span class="hide">Скрыть</span>
   </reviews-showmore>
 
-  <div class="reviews-desc">
-    @text
+  <div class="reviews-wrap">
+    <div class="reviews-author">
+      @if(img) {
+      <div class="reviews-img img-cover">
+        <img src="./assets/images/reviews/@img.png" alt="@name" loading="lazy" width="80" height="80">
+      </div>
+      }
+  
+  
+      <div class="reviews-column">
+        <h3 class="reviews-name">@name</h3>
+        <div class="reviews-occup">@occup</div>
+      </div>
+    </div>
+  
+    <div class="reviews-desc">
+      @text
+    </div>
   </div>
 </div>

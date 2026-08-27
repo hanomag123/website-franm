@@ -86,7 +86,7 @@
 .menu-list {
   display: flex;
   border-radius: 0 0 1.6rem 1.6rem;
-  padding: 0 1.6rem;
+  padding: 0;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
   background: var(--primary-white);
 
@@ -94,7 +94,23 @@
     flex-direction: column;
 
     box-shadow: none;
+    padding: 0 1.6rem;
+  }
 
+  &>* {
+    &:first-child {
+      a {
+        padding-left: 3.4rem;
+        border-radius: 0 0 0 1.6rem;
+      }
+    }
+
+    &:last-child {
+      a {
+        padding-right: 3.4rem;
+        border-radius: 0 0 1.6rem 0;
+      }
+    }
   }
 
   a {

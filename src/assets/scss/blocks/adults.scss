@@ -387,11 +387,14 @@
     gap: 1.3rem;
 
     .catalog-item {
+      min-height: 13.8rem;
+    }
+
+    .catalog-wrap {
       padding: 1.2rem 4rem;
       display: flex;
       flex-direction: row;
       gap: 4rem;
-      min-height: 13.8rem;
     }
 
     .catalog-tag {
@@ -418,13 +421,6 @@
 }
 
 .catalog-item {
-  border: 2px solid var(--secondary-green);
-  border-radius: 3rem;
-  padding: 2.4rem 1.2rem 1.2rem;
-
-  box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.12);
-  background: var(--primary-white--2);
-
   position: relative;
 
   min-height: 32rem;
@@ -433,6 +429,23 @@
 
   @include breakpoint($xl-bp) {
     min-height: 26rem;
+    border-radius: 2.6rem;
+  }
+}
+
+.catalog-wrap {
+  border: 2px solid var(--secondary-green);
+  border-radius: 3rem;
+  padding: 2.4rem 1.2rem 1.2rem;
+
+  box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.12);
+  background: var(--primary-white--2);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  transition: box-shadow var(--time);
+
+  @include breakpoint($xl-bp) {
     border-radius: 2.6rem;
   }
 }
@@ -449,8 +462,12 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      &~.catalog-block .catalog-subtitle {
+      &~.catalog-wrap .catalog-block .catalog-subtitle {
         color: var(--secondary-purp);
+      }
+
+      &~.catalog-wrap {
+        box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.2);
       }
     }
   }
@@ -546,6 +563,7 @@
   svg {
     width: 2.4rem;
     height: 2.4rem;
+
     @include breakpoint($xl-bp) {
       width: 2rem;
       height: 2rem;

@@ -1,4 +1,4 @@
-const forms = document.querySelectorAll("#modal form, #consult-modal");
+const forms = document.querySelectorAll("#modal form, #consult-modal, #modal2 form");
 if (forms) {
   forms.forEach(form => {
     form.addEventListener("submit", function () {
