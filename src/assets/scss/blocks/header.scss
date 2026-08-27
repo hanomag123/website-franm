@@ -17,7 +17,7 @@
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
 
   @include breakpoint($xl-bp) {
-    position: sticky;
+    position: relative;
     padding-top: 1rem;
     padding-bottom: 1rem;
 
@@ -60,25 +60,25 @@
 }
 
 .up {
-  transition: transform .3s;
-  @include breakpoint($xl-bp) {
-    transition: none;
-  }
+  transition: transform .4s;
+  // @include breakpoint($xl-bp) {
+  //   transition: none;
+  // }
 }
 
 .header--active2 {
-  transition: transform .3s;
-  @include breakpoint($xl-bp) {
-    transition: none;
-  }
+  transition: transform .4s;
+  // @include breakpoint($xl-bp) {
+  //   transition: none;
+  // }
 }
 
 .header--active.out {
   transform: translate3d(0, calc(-100% - 1rem), 0);
 
-  @include breakpoint($xl-bp) {
-    transform: none;
-  }
+  // @include breakpoint($xl-bp) {
+  //   transform: none;
+  // }
 }
 
 .header-logo {
