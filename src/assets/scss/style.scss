@@ -221,6 +221,11 @@ h1,
   font-weight: 600;
   font-size: 4.6rem;
   line-height: 113%;
+
+  @include breakpoint($xl-bp) {
+    font-size: 3rem;
+    line-height: 113%;
+  }
 }
 
 h2,
@@ -247,8 +252,9 @@ h3,
 
 .mt-30 {
   margin-top: 3rem;
+
   @include breakpoint($xl-bp) {
-    margin-top: 2rem;
+    margin-top: 1.3rem;
   }
 }
 
@@ -414,6 +420,19 @@ details>summary::-webkit-details-marker {
 details>summary {
   list-style: none;
   cursor: pointer;
+}
+
+.xl-hidden {
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
+}
+
+.xl-block {
+  display: none;
+  @include breakpoint($xl-bp) {
+    display: block
+  }
 }
 
 /* Blocks */

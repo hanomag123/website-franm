@@ -503,8 +503,11 @@
 
 .consult {
   margin-top: 4rem;
+  margin-bottom: 3.3rem;
+
   @include breakpoint($xl-bp) {
     margin-top: 2rem;
+    margin-bottom: 1.4rem;
   }
 }
 
@@ -598,10 +601,10 @@
 }
 
 .reviews {
-  padding-top: 3.3rem;
+  margin-top: 3.3rem;
 
   @include breakpoint($xl-bp) {
-    padding-top: 1.4rem;
+    margin-top: 1.4rem;
   }
 }
 
@@ -899,10 +902,10 @@
 }
 
 .faq {
-  padding-top: 2.5rem;
+  margin-top: 2.5rem;
 
   @include breakpoint($xl-bp) {
-    padding-top: 0.8rem;
+    margin-top: 0.8rem;
   }
 }
 
@@ -920,6 +923,7 @@
   &.opened {
     &::after {
       transform: rotate(180deg);
+
       @include breakpoint($xl-bp) {
         transform: translateY(-50%) rotate(180deg);
       }
