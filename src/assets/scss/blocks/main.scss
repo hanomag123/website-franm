@@ -918,7 +918,10 @@
 
   &.opened {
     &::after {
-      transform: translateY(-50%) rotate(180deg);
+      transform: rotate(180deg);
+      @include breakpoint($xl-bp) {
+        transform: translateY(-50%) rotate(180deg);
+      }
     }
 
     &+.faq-list {
@@ -937,12 +940,12 @@
     margin-left: 2rem;
     display: inline-block;
     transition: transform var(--time);
-    transform: translateY(-50%);
 
     @include breakpoint($xl-bp) {
       position: absolute;
       top: 50%;
       right: 0;
+      transform: translateY(-50%);
     }
   }
 }
