@@ -51,26 +51,20 @@
   overflow: hidden;
 }
 
-.up,
-.header--active {
+.scrolled.up,
+.header--active2.up {
   position: sticky;
   @include breakpoint($xl-bp) {
     position: sticky;
   }
 }
 
-.up {
+.header--active2.up {
   transition: transform .4s;
-  // @include breakpoint($xl-bp) {
-  //   transition: none;
-  // }
 }
 
 .header--active2 {
   transition: transform .4s;
-  // @include breakpoint($xl-bp) {
-  //   transition: none;
-  // }
 }
 
 .header--active.out {

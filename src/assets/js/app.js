@@ -147,7 +147,8 @@ document.addEventListener("DOMContentLoaded", () => {
       currentScrollPos = 0;
     }
     const num = xl.matches ? 150 : 150;
-    const num2 = xl.matches ? 400 : 250;
+    const num2 = header.offsetHeight * 2;
+
     if (currentScrollPos > num2) {
       header.classList.add('header--active2')
     } else {
@@ -164,6 +165,13 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       header.classList.add("out");
       header.classList.remove('up')
+    }
+
+    if (header.classList.contains('header--active2')) {
+      header.classList.add('scrolled')
+    }
+    if (currentScrollPos === 0) {
+      header.classList.remove('scrolled')
     }
     prevScrollpos = currentScrollPos;
   }
