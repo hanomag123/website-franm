@@ -1,10 +1,10 @@
 .adults {
   position: relative;
-  padding-top: 4.5rem;
+  padding-top: 4.3rem;
   padding-bottom: 6rem;
 
   @include breakpoint($xl-bp) {
-    padding-top: 2.1rem;
+    padding-top: 1.9rem;
     padding-bottom: 3.5rem;
   }
 
@@ -46,10 +46,19 @@
 
   display: flex;
   align-items: center;
+  overflow: hidden;
 
   @include breakpoint($xl-bp) {
     font-size: 1rem;
     line-height: 160%;
+  }
+
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    white-space: nowrap;
+
   }
 
   a {
@@ -61,6 +70,12 @@
 
     transition: text-decoration-color var(--time);
 
+    text-overflow: ellipsis;
+    max-width: 100%;
+
+    white-space: nowrap;
+    padding-top: 0.2rem;
+    overflow: hidden;
     @media (hover: hover) and (pointer: fine) {
       &:hover {
         text-decoration-color: transparent;
@@ -82,6 +97,7 @@
 
     &:last-child {
       color: var(--secondary-grey);
+      padding-top: 0.2rem;
     }
 
     &:first-child {

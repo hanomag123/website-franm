@@ -217,6 +217,18 @@ svg {
       }
     }
   }
+
+  &.btn-purp {
+    background: var(--secondary-purp);
+    border-color: var(--secondary-purp);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: var(--secondary-green);
+        border-color: var(--secondary-green);
+      }
+    }
+  }
 }
 
 h1,

@@ -137,6 +137,11 @@
 
     &.active {
       background-color: #F0F0F0;
+      @include breakpoint($xl-bp) {
+        background-color: transparent;
+        color: var(--secondary-green--darke);
+        font-weight: 700;
+      }
     }
 
     @media (hover: hover) and (pointer: fine) {

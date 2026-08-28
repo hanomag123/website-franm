@@ -23,7 +23,7 @@
 
     align-items: center;
 
-    will-change: auto;
+    will-change: transform;
     transition: background-color var(--time);
     box-shadow: none;
   }
