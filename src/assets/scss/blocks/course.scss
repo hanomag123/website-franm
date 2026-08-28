@@ -11,6 +11,8 @@
 
     display: flex;
     flex-direction: column;
+
+    gap: 2rem;
   }
 
   * {
@@ -57,6 +59,7 @@
   @include breakpoint($xl-bp) {
     font-size: 1.6rem;
     line-height: 138%;
+    margin-top: 1rem;
   }
 }
 
@@ -88,12 +91,22 @@
 
   max-width: 88rem;
 
+  @include breakpoint($xl-bp) {
+    font-size: 1.6rem;
+    line-height: 138%;
+    margin-top: 1rem;
+  }
+
   strong {
     color: var(--secondary-green--darke);
   }
 
   p {
     margin-bottom: 2rem;
+
+    @include breakpoint($xl-bp) {
+      margin-bottom: 0.3rem;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -112,6 +125,10 @@
 
   z-index: 1;
 
+  @include breakpoint($xl-bp) {
+    top: 7.7rem;
+  }
+
   img {
     object-position: right;
   }
@@ -123,6 +140,11 @@
   gap: 3rem;
 
   padding-top: 5.7rem;
+
+  @include breakpoint($xl-bp) {
+    padding-top: 0;
+    gap: 1.6rem;
+  }
 }
 
 .course-block {
@@ -139,12 +161,17 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  @include breakpoint($xl-bp) {
+    padding: 1rem 1.6rem;
+  }
 }
 
 .course-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
 
 .course-price {
@@ -158,6 +185,11 @@
   text-align: center;
 
   min-width: 12.8rem;
+
+  @include breakpoint($xl-bp) {
+    font-size: 2rem;
+    min-width: 12.3rem;
+  }
 
   s {
     font-size: 1.8rem;
@@ -174,6 +206,14 @@
   text-transform: uppercase;
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.4rem;
+    min-height: 4rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+
+  }
 }
 
 .course-consult {
@@ -186,6 +226,14 @@
 
   padding-top: 1rem;
   padding-bottom: 1rem;
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.4rem;
+    min-height: 4rem;
+
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
 }
 
 .course-grid {
@@ -209,6 +257,10 @@
   border: 1px solid #c2c2c2;
   padding: 1.5rem;
   padding-right: 0;
+
+  @include breakpoint($xl-bp) {
+    padding: 0.8rem;
+  }
 
   &:first-child {
     border-top: 0;
@@ -234,12 +286,22 @@
   width: 4.4rem;
   height: 4.4rem;
   flex: 0 0 auto;
+
+  @include breakpoint($xl-bp) {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
 }
 
 .course-innertitle {
   font-weight: 700;
   font-size: 1.6rem;
   line-height: 125%;
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.4rem;
+    line-height: 129%;
+  }
 }
 
 .info {
@@ -249,6 +311,12 @@
 
   margin-top: 3.3rem;
   margin-bottom: 3.3rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 }
 
 .info-wysiwyg {
@@ -271,6 +339,12 @@
 
     margin-top: 3rem;
     margin-bottom: 0.6rem;
+
+    @include breakpoint($xl-bp) {
+      font-size: 2.6rem;
+      color: var(--secondary-greenp--light);
+      margin-bottom: 0;
+    }
   }
 
   a {
@@ -279,6 +353,10 @@
 
   p {
     margin-bottom: 2.6rem;
+
+    @include breakpoint($xl-bp) {
+      margin-bottom: 2.3rem;
+    }
   }
 
   ul {
@@ -290,9 +368,18 @@
 
     max-width: 63rem;
 
+    @include breakpoint($xl-bp) {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
     li {
       position: relative;
       padding-left: 8.4rem;
+
+      @include breakpoint($xl-bp) {
+        padding-left: 2.6rem;
+      }
 
       &::before {
         content: '';
@@ -305,6 +392,13 @@
         position: absolute;
         top: 0.5rem;
         left: 4rem;
+
+        @include breakpoint($xl-bp) {
+          width: 1rem;
+          height: 1rem;
+          left: 0;
+
+        }
       }
     }
   }
@@ -312,4 +406,7 @@
 
 .info-img {
   max-height: 38.3rem;
+  @include breakpoint($xl-bp) {
+    height: 19.3rem;
+  }
 }
