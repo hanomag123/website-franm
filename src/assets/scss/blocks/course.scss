@@ -23,6 +23,10 @@
 
 .course-title {
   margin-top: 3rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 2.5rem;
+  }
 }
 
 .course-subtitle {
@@ -30,6 +34,11 @@
   font-size: 3rem;
   color: var(--secondary-grey);
   margin-top: 1.3rem;
+
+  @include breakpoint($xl-bp) {
+    font-size: 2.6rem;
+    margin-top: 0.3rem;
+  }
 }
 
 .course-level {
@@ -44,6 +53,11 @@
   gap: 1.5rem;
 
   margin-top: 2.2rem;
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.6rem;
+    line-height: 138%;
+  }
 }
 
 .course-tag {
@@ -56,6 +70,13 @@
   border-radius: 3rem;
   padding: 0 1.2rem;
   background: var(--secondary-purp--light);
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.6rem;
+    line-height: 125%;
+    border-radius: 3rem;
+    padding: 0.4rem 1.2rem;
+  }
 }
 
 .course-text {
@@ -219,4 +240,76 @@
   font-weight: 700;
   font-size: 1.6rem;
   line-height: 125%;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+
+  margin-top: 3.3rem;
+  margin-bottom: 3.3rem;
+}
+
+.info-wysiwyg {
+
+  &>* {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  h2,
+  h3 {
+    font-weight: 600;
+    font-size: 3rem;
+    color: var(--secondary-green--darke);
+
+    margin-top: 3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  p {
+    margin-bottom: 2.6rem;
+  }
+
+  ul {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    max-width: 63rem;
+
+    li {
+      position: relative;
+      padding-left: 8.4rem;
+
+      &::before {
+        content: '';
+        background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='7' cy='7' r='5.5' stroke='%233DA89C' stroke-width='3' /%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 1.4rem;
+        height: 1.4rem;
+        position: absolute;
+        top: 0.5rem;
+        left: 4rem;
+      }
+    }
+  }
+}
+
+.info-img {
+  max-height: 38.3rem;
 }

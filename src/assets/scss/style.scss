@@ -80,8 +80,8 @@ svg {
 }
 
 .container {
-  padding-right: 26rem;
-  padding-left: 26rem;
+  padding-right: 25rem;
+  padding-left: 25rem;
 
   @include breakpoint($xl-bp) {
     padding-right: 1.6rem;

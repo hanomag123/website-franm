@@ -75,6 +75,7 @@
 
   img {
     object-position: right;
+
     @include breakpoint($xl-bp) {
       object-position: center;
     }
@@ -89,8 +90,8 @@
 }
 
 .good-wrap {
-  padding-left: 24.5rem;
-  padding-right: 24.5rem;
+  padding-left: 23.5rem;
+  padding-right: 23.5rem;
 
   @include breakpoint($xl-bp) {
     padding-left: 1.6rem;
@@ -982,6 +983,14 @@
   }
 }
 
+.faq-list2 {
+  margin-top: 1.5rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 0.8rem;
+  }
+}
+
 .faq-accordion {
   background: var(--primary-white);
   border-bottom: 1px solid var(--secondary-green);
@@ -1023,8 +1032,8 @@
 .faq-summary {
   padding-top: 1rem;
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  align-items: center;
+  gap: 4rem;
 
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -1032,6 +1041,10 @@
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+
+  position: relative;
+
+  padding-right: 5rem;
 
   @include breakpoint($xl-bp) {
     gap: 2rem;
@@ -1051,13 +1064,18 @@
     flex: 0 0 auto;
     transition: transform var(--time);
 
+    position: absolute;
+    right: 0rem;
+    top: calc(50% + 0.5rem);
+    transform: translateY(-50%);
+
     @include breakpoint($xl-bp) {
       width: 3.6rem;
       height: 1.8rem;
     }
 
     details[open] & {
-      transform: rotate(180deg);
+      transform: translateY(-50%) rotate(180deg);
     }
   }
 
@@ -1065,6 +1083,15 @@
     &:hover {
       color: var(--secondary-green--darke);
     }
+  }
+}
+
+.faq-icon {
+  width: 4.8rem;
+  height: 4.8rem;
+  svg {
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -1100,7 +1127,17 @@
     line-height: 138%;
   }
 
+  & > * {
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   ul {
+    margin-bottom: 2rem;
     li {
       padding-left: 3rem;
       position: relative;
@@ -1132,6 +1169,17 @@
     position: relative;
     top: 1rem;
   }
+}
+
+.faq-block {
+  border-radius: 3rem;
+  padding: 1.2rem 4rem;
+  background: var(--secondary-green);
+  color: var(--primary-white);
+}
+
+.faq-bot {
+  margin-top: 0.6rem;
 }
 
 .cookie {
