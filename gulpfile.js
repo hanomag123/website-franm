@@ -119,6 +119,10 @@ function html(cb) {
     .pipe(fileInclude({
       prefix: '@',
       basepath: '@file',
+      context: {
+        tag: 'В01',
+        info: '3 сеанса от 20 до 30 минут',
+      }
     }))
     .pipe(dest(path.build.html))
     .pipe(browserSync.reload({ stream: true }));

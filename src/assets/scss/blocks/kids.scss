@@ -1,0 +1,100 @@
+.cta {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.cta-columns {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.cta-item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+  padding: 0.3rem 1rem;
+
+  border-bottom: 2px solid var(--primary-white--shade);
+
+  &:first-child {
+    border-top: 2px solid var(--primary-white--shade);
+  }
+}
+
+.cta-hiddenlink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  opacity: 0;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      &~.cta-subtitle {
+        color: var(--secondary-purp);
+      }
+    }
+  }
+}
+
+.cta-img {
+  width: 7.4rem;
+  height: 6rem;
+  flex: 0 0 auto;
+
+  @include breakpoint($xl-bp) {
+    width: 6rem;
+    height: 5rem;
+  }
+}
+
+.cta-subtitle {
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 122%;
+  color: var(--secondary-green--darke);
+  transition: color var(--time);
+
+  word-break: break-word;
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.6rem;
+  }
+}
+
+.cta-tag {
+  background: var(--secondary-purp--light);
+
+  border-radius: 3rem;
+  padding: 0 1.2rem;
+
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 144%;
+  text-align: center;
+  color: var(--primary-white);
+
+  margin-left: auto;
+  flex: 0 0 auto;
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.6rem;
+    padding: 0 1rem;
+  }
+}

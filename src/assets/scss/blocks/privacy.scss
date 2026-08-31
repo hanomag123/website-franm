@@ -1,0 +1,67 @@
+.privacy {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  &>* {
+    max-width: 132rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.privacy-wysiwyg {
+  margin-top: 6rem;
+  @include breakpoint($xl-bp) {
+    margin-top: 2rem;
+  }
+  & > * {
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: 3.6rem;
+
+    margin-bottom: 4rem;
+
+    @include breakpoint($xl-bp) {
+      font-size: 2.6rem;
+
+      margin-bottom: 2rem;
+    }
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 150%;
+    color: var(--secondary-green--darke);
+
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+
+    @include breakpoint($xl-bp) {
+      font-size: 1.6rem;
+      line-height: 138%;
+
+      margin-top: 2rem;
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  ul {
+    padding-left: 2.4rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    @include breakpoint($xl-bp) {
+      margin-top: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+  }
+}
