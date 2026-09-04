@@ -272,6 +272,10 @@ a.menu-phone {
         color: var(--secondary-green);
       }
     }
+
+    &.active {
+      color: var(--secondary-green);
+    }
   }
 }
 

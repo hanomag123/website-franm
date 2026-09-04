@@ -349,6 +349,13 @@
 
   a {
     text-decoration: underline;
+    transition: text-decoration-color var(--time);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        text-decoration-color: transparent;
+      }
+    }
   }
 
   p {
@@ -406,6 +413,7 @@
 
 .info-img {
   max-height: 38.3rem;
+
   @include breakpoint($xl-bp) {
     height: 19.3rem;
   }

@@ -281,6 +281,14 @@ h3,
   }
 }
 
+
+.xl-mt-30 {
+  margin-top: 4rem;
+  @include breakpoint($xl-bp) {
+    margin-top: 3rem;
+  }
+}
+
 img.lazyload:not([src]) {
   visibility: hidden;
 }
